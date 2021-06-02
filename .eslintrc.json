@@ -9,8 +9,9 @@
   "extends": ["eslint:recommended", "plugin:react/recommended", "airbnb"],
   "parser": "babel-eslint",
   "rules": {
-    "indent": ["warn", 4],
-    "react/jsx-indent": ["warn", 4, { "checkAttributes": true }],
+    "indent": ["warn", 2],
+    "no-trailing-spaces": "off",
+    "react/jsx-indent": ["warn", 2, { "checkAttributes": true }],
     "react/react-in-jsx-scope": "off",
     "react/destructuring-assignment": "off",
     "react/state-in-constructor": "off",
