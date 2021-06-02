@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import styles from './ContactForm.module.css';
 
 class ContactForm extends Component {
-  state = { name: '', number: '' };
+  state = {
+    name: '',
+    number: '',
+  };
 
   handleInputChange = (e) => {
     const { value, name } = e.target;
@@ -12,7 +15,9 @@ class ContactForm extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    this.props.onSubmit(this.state);
+    const { name } = this.state;
+    const nameToLowerCase = name.toLowerCase();
+    this.props.onSubmit({ ...this.state, name: nameToLowerCase });
     this.setState({ name: '', number: '' });
   };
 

@@ -14,6 +14,22 @@ class App extends Component {
     filter: '',
   };
 
+  componentDidMount() {
+    // eslint-disable-next-line
+    const contacts = localStorage.getItem('contacts');
+    if (contacts) {
+      this.setState({ contacts: JSON.parse(contacts) });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { contacts } = this.state;
+    if (contacts !== prevState.contacts) {
+      // eslint-disable-next-line
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+    }
+  }
+
   addContact = ({ name, number }) => {
     const { contacts } = this.state;
     if (contacts.some((contact) => contact.name === name)) {
